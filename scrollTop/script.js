@@ -14,9 +14,16 @@ window.addEventListener('scroll', () => {
    let mainHeight = main.offsetHeight
    let asideHeight = aside.offsetHeight
    let asideBottomPos = mainHeight - asideHeight
- let footerHeight =
-     footer.offsetHeight
-     console.log(footer.offsetTop)
+   let trigger = window.document.body.scrollTop - headerHeight
+   console.log(trigger)
+      if (window.document.body.scrollTop >= headerHeight){
+          console.log('over header height')
+      }
+      if (trigger >= asideBottomPos){
+
+          console.log('triggered')
+      }
+
 // console.log(aside.getBoundingClientRect());
 // console.log(aside.offsetTop.top)
 // console.log(aside.scrollHeight)

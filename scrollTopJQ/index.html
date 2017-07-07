@@ -13,10 +13,12 @@
                 </p>
             </main>
                 <aside>
-                  <div>One</div>
-                  <div>Two</div>
-                  <div>Three</div>
-                  <div>Four</div>
+                 <div class='side-content'>
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                    </div>
                 </aside>
             <footer></footer>
 
@@ -27,34 +29,22 @@
       crossorigin="anonymous">
       </script>
     <script>
-
+    var window = $(window)
+    var main   = $('main')
+    //var windowHeight = window.height()
+    var sideContent = $('.side-content')
     $(window).scroll(function () {
-        // header height
-    	var fixSidebar = $('header').innerHeight();
-        // main body height
-    	var contentHeight = $('main').innerHeight();
-        // aside height
-    	var sidebarHeight = $('aside').height();
-
-        height of main
-        var sidebarBottomPos = contentHeight - sidebarHeight;
-
-      var trigger = $(window).scrollTop() - fixSidebar;
-
-// if window is scolled down more than header height, add the fixed class
-          	if ($(window).scrollTop() >= fixSidebar) {
-              	$('.side-navigation').addClass('fixed');
-          	} else {
-              	$('.side-navigation').removeClass('fixed');
-          	}
-
-          	if (trigger >= sidebarBottomPos) {
-              	$('.side-navigation').addClass('bottom');
-          	} else {
-              	$('.side-navigation').removeClass('bottom');
-          	}
-    });
-
+         console.log(`window scrollTop: ${$(window).scrollTop()}`)
+        console.log(`window scroll+side: ${$(window).scrollTop() + sideContent.height()}`)
+        console.log(`main height: ${main.height()}`)
+     if(($(window).scrollTop()) + sideContent.height()
+       >= main.height()){
+         console.log('add class')
+         sideContent.addClass('scroll')
+     }  else {
+         sideContent.removeClass('scroll')
+     }
+    })
     </script>
 
 </html>
